@@ -1,0 +1,6 @@
+<view class="divide">分区</view>
+<view class="line"></view>
+<view class="classify">
+   <view class="photo"><image src="../../images/InterestCircles2/haFill-31-book-bookmark 2@1x.png"></image></view>
+   <view class="content">文学</view>
+</view>

@@ -1,0 +1,108 @@
+/* video_add */
+page{
+  font-family: 'DFPShaoNvW5-GB';
+
+}
+.top{
+  width: 100%;
+  height: 120rpx;
+}
+.top .make_favorite{
+  width: 250rpx;
+  height: 70rpx;
+  font-size: 38rpx;
+  line-height: 70rpx;
+  float: left;
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+}
+.top .OK{
+  width: 150rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-weight: 600;
+  color: aliceblue;
+  background-color: #ce8525;
+  border-radius: 30rpx;
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+}
+.line_1{
+  width: 100%;
+  height: 20rpx;
+  background-color: #f2f2f2;
+}
+.cover{
+  width: 100%;
+  height: 180rpx;
+  border-bottom: #f2f2f2 solid 10rpx;
+}
+.cover .cover_left{
+  width: 150rpx;
+  height: 180rpx;
+  line-height: 180rpx;
+  font-size: 35rpx;
+  margin-left: 40rpx;
+  float: left;
+}
+.cover .cover_right{
+  width: 160rpx;
+  height: 100rpx;float: right;
+  margin-top: 40rpx;
+  margin-right: 30rpx;
+  
+}
+.cover .cover_right image{
+  width: 60rpx;
+  height: 60rpx;
+  float: right;
+}
+.title{
+  width: 100%;
+  height: 130rpx;
+  border-bottom: #f2f2f2 solid 10rpx;
+}
+.title .name{
+  width: 100rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  font-size: 35rpx;
+  margin-left: 40rpx;
+  float: left;
+}
+.title .inp{
+  width: 600rpx;
+  height: 130rpx;
+  float: right;
+}
+.title .inp .inp_input{
+  width: 600rpx;
+  height: 130rpx;
+}
+.brief{
+  width: 100%;
+  height: 400rpx;
+  border-bottom: #f2f2f2 solid 10rpx;
+  
+}
+.brief .bri_name{
+  width: 100rpx;
+  height: 130rpx;
+  line-height: 130rpx;
+  font-size: 35rpx;
+  margin-left: 40rpx;float: left;
+}
+.brief .bri_inp{
+  width: 600rpx;
+  height: 400rpx;
+  float: left;
+}
+.brief .bri_inp .bri_inp_input{
+  width: 600rpx;
+  height: 400rpx;
+  margin-top: 45rpx;
+  margin-left: 13rpx;
+}

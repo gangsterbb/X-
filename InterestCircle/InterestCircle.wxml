@@ -1,0 +1,19 @@
+<view class="title">兴趣圈</view>
+<view class="searchss">
+  <view class="home"><image src="../../images/InterestCircle/home.png" style="width: 60rpx;height: 60rpx;"></image></view>
+  <view class="searchbar"  id="toSearch" >
+    <image src="/images/other/search.png" mode="aspectFit"/> 
+    <input type="text" class="search" placeholder="搜索关键词" placeholder-style="font-size:25rpx" bindinput="SearchCircle" />
+  </view>
+</view>
+
+<view class="container">
+<block wx:for="{{current_circle.length}}" >
+      <view class="content" id="tv" bindtap="navigatorTo" data-Circle="{{item}}">
+     <view class="left"><image src="{{current_circle[item].image}}" style="width: 60rpx;height: 60rpx;"></image></view>
+     <view class="mid">{{current_circle[item].title}}</view>
+     <view class="right"><image src="../../images/InterestCircle/toward.png" style="width: 50rpx;height: 50rpx;"></image></view>
+  </view>
+</block>
+
+</view>

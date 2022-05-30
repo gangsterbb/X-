@@ -1,0 +1,8 @@
+{ 
+  "usingComponents": {   
+    "tabs": "/components/tabs/tabs",
+    "calendar":"../../components/calendar/calendar"
+  },
+  
+  "navigationStyle": "custom"
+} 

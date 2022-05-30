@@ -1,0 +1,277 @@
+<wxs src="../../wxs/timestamp.wxs" module="formatMsgTime"></wxs>
+<wxs src="../../wxs/indexjudge.wxs" module="indexjudge"></wxs>
+<wxs src="../../wxs/special_comment.wxs" module="special_comment"></wxs>
+<wxs src="../../wxs/get_people.wxs" module="get_people"></wxs>
+<wxs src="../../wxs/Empirical_to_Level.wxs" module="Empirical_to_Level"></wxs>
+<view class="container">
+  <scroll-view class="scroll" scroll-x scroll-into-view="view-{{activeIndex}}" scroll-with-animation="true">
+    <block wx:for="{{tabList}}" wx:key="index"> 
+      <view catchtap="handleTabChange" id="view-{{index}}" data-index="{{index}}" class="item {{index == activeIndex ? 'active' : ''}}">
+        <view>{{item.typeName}}</view>
+        <view class="line"></view>
+      </view>
+    </block>
+  </scroll-view>
+</view> 
+
+
+<!-- <block wx:if="{{activeIndex==0}}">  -->
+<view class="searchbar" bindtap="navigatorTo2" id="toSearch" data-rout="Search" >
+    <image src="/images/other/search.png" mode="aspectFit"/>  
+    <input type="text" class="search" placeholder="搜索社区、帖子" placeholder-style="font-size:25rpx"disabled="true" />
+</view>  
+  <view class="container-1">
+    <view class="circle {{animateClass[1]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="1">
+      <view class="img" bindtap="navigatorTo2" id="topunch" data-rout="NewDaka"><image src="/images/home-flex/punch.png"  mode="aspectFit"/></view>
+      <view class="text"><text>打卡通道</text></view> 
+    </view>
+
+    <view class="circle {{animateClass[2]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="2">
+      <view class="img" bindtap="navigatorTo2" id="tointerest" data-rout="InterestCircle"><image src="/images/home-flex/interest.png" /></view>
+      <view class="text"><text style="margin-left: 15rpx;">兴趣圈</text></view>
+    </view>
+
+    <view class="circle {{animateClass[3]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="3">
+      <view class="img" bindtap="navigatorTo2" id="toshoucang" data-rout="Favotites"><image src="/images/home-flex/star_dir.png" /></view>
+      <view class="text"><text style="margin-left: 13rpx;">收藏夹</text></view>
+    </view>
+
+    <view class="circle {{animateClass[4]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="4">
+      <view class="img" bindtap="navigatorTo2" id="toGame" data-rout="TeacherCreate"><image src="/images/home-flex/game.png" /></view>
+      <view class="text"><text style="margin-left: 10rpx;" >名师创作</text></view>
+    </view>
+
+    <view class="circle {{animateClass[5]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="5">
+      <view class="img" bindtap="navigatorTo2" id="toMore" data-rout="More"><image src="/images/home-flex/more.png" /></view>
+      <view class="text"><text style="margin-left: 23rpx;">更多</text></view>
+    </view>
+  </view>
+
+  <block wx:if="{{activeIndex==0}}">
+  <view class="recommend"><text>每日推荐</text></view>
+  </block>
+
+
+<view wx:for="{{CloudDatas}}" data-id="{{item._id}}" data-idx="{{index}}" wx:key="index">
+  <view class="peoples"  style="margin-bottom: 10rpx;">
+    <view class="container-2">
+    <view class="people">
+      <view class="head" bindtap="navigatorTo" data-rout="Person_information" data-index="{{index}}"><image src="{{get_people.get_people(Note_People,item._openid).avatarUrl}}"/></view>
+      <view class="nlt">
+      <view class="mid_content" >
+        <view></view>
+            <view class="name"><text>{{get_people.get_people(Note_People,item._openid).name}}</text></view>
+            <view class="level"><text>lv.{{Empirical_to_Level.Empirical_to_Level(get_people.get_people(Note_People,item._openid).empirical_value)}}</text></view>
+            <view class="time"><text>{{formatMsgTime.formatMsgTime(item.timestamp)}}</text></view>
+      </view>
+     
+      <view class="follow"  bindtap="follow_click" data-id="{{item._id}}" data-index="{{index}}">
+        <block wx:if="{{indexjudge.indexjudge(People.follow_people,item._openid)}}">
+          <image src="/images/imfollow.png" mode="aspectFit"></image>
+        </block>
+        <block wx:else>
+          <image src="/images/follow.png" mode="aspectFit"/>
+       </block>
+      </view>
+      </view>
+    </view>
+
+    <view class="CONTENT" bindtap="navigatorTo" data-index="{{index}}" data-rout="detail" data-people="{{get_people.get_people(Note_People,item._openid)}}">
+      <view class="header"><text>{{item.title}}</text></view>
+      <view class="content"><text>{{item.content}}</text></view>
+    </view>
+      <view class="The_Picture"  bindtap="navigatorTo" data-index="{{index}}" data-rout="detail" >
+      <block wx:if="{{item.video!=''}}">
+        <view class="picture" >
+          <image src="{{item.video[0]}}" mode="aspectFill"/> 
+      </view>
+      </block>
+        <block wx:elif="{{item.contentimage!=''}}">
+      <view class="picture" >
+        {{item.contentimage[0]}}
+        <image src="{{item.contentimage[0]}}"/>
+      </view>
+      </block>
+
+    <block wx:if="{{item.topic_class}}">
+      <view class="selected">
+        <image src="/images/other/keys3.png"/>
+        <text>{{item.topic_class}}</text>
+      </view>
+
+    </block>
+    </view> 
+
+
+  <view class="container-3">
+
+      <view class="icon {{animateClass[7]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="7">
+<view id="collect" bindtap="star_click" data-starid="{{item._id}}" data-index="{{index}}" data-type="topic">
+  <block wx:if="{{indexjudge.indexjudge(item.star_people,openid)}}">
+    <image src="/images/other/collect2.png" mode="aspectFit"/>
+    <text>{{item.star_people.length}}</text>
+  </block>
+  <block wx:else>
+    <picker mode='multiSelector' range="{{itemList}}" bindcolumnchange="bindMultiPickerColumnChange"  bindchange="onPickerChange" data-index="{{index}}" data-type="topic" >
+    <image src="/images/other/collect1.png" mode="aspectFit"/>
+    <text>{{item.star_people.length}}</text>
+    </picker>
+  </block>
+
+</view>
+</view>
+
+
+
+<view class="icon {{animateClass[6]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="6">
+  <view id="like" bindtap="like_click" data-likeid="{{item._id}}"  data-index="{{index}}" >
+    <block wx:if="{{indexjudge.indexjudge(item.like_people,openid)}}">
+    <image src="/images/other/like2.png" mode="aspectFit"/>
+  </block>
+  <block wx:else>
+    <image src="/images/other/like1.png" mode="aspectFit"/>
+  </block>
+    <text>{{item.like_people.length}}</text>
+  </view>
+</view> 
+
+<view class="icon {{animateClass[8]}}" catchtap="onClickAnimateEvent" data-class="zoom" data-index_1="8">
+<view id="comment" data-commentid="{{item._id}}"  data-index="{{index}}" bindtap="comment_click" >
+  <image src="{{commentimage}}" mode="aspectFit"/>
+  <text>{{item.comment_people.length}}</text>
+</view>
+</view>
+
+<view class="icon" style="margin-top: 2rpx;margin-left: 5rpx;">
+<view id="trans" bindtap="tran_click" data-tranid="{{item._id}}">
+  <button open-type="share" data-index="{{index}}" style="width:100rpx ;height:70rpx;margin-left: -10rpx;margin-top: 2rpx;">
+  <view class="btn_img"><image src="{{transimage}}" style="margin-left:-30rpx;margin-bottom:20rpx;width: 35rpx;height: 35rpx;"/></view>
+  <view class="btn_cont" style="margin-top: -60rpx;margin-left: 13rpx;color: rgb(138, 134, 134);font-size: 30rpx;font-weight: 500;">{{item.tran_people.length}}</view>
+  </button>
+  
+</view>
+</view>
+</view>
+
+
+<block wx:if="{{item.comment_people!=''}}">
+  <view class="selected-comment" style="margin-left: 40rpx;"><text>精选留言</text></view>
+    <view class="comment" style="float: left;background-color: white;">
+      <view class="head-2">
+        <image src="{{get_people.get_people(Note_People,special_comment.special_comment(item.comment_people).openid).avatarUrl}}"/>
+      </view>
+      <view class="name-2"><text>{{get_people.get_people(Note_People,special_comment.special_comment(item.comment_people).openid).name}}</text></view>
+      <view class="comment-content"><text>{{special_comment.special_comment(item.comment_people).comment_content}}</text></view>
+      <view class="date"><text>{{
+        formatMsgTime.formatMsgTime(special_comment.special_comment(item.comment_people).comment_date)
+      }}</text></view>
+
+      <view class="fabulous" bindtap="left_click" data-leftid="{{item._id}}" data-index="{{index}}"> 
+        <view wx:if="{{indexjudge.indexjudge(special_comment.special_comment(item.comment_people).like_people,openid)}}">
+          <image src="/images/other/like2.png"/>
+        </view>
+        <view wx:else>
+          <image src="/images/other/like1.png"/>
+         </view>
+        <image src="{{leftimage[index]}}"/></view>
+      <view class="fabulous-count"><text>{{special_comment.special_comment(item.comment_people).like_people.length}}</text></view>
+    </view>
+</block>
+
+  </view>
+  </view> 
+</view>
+<!-- </block> -->
+
+
+
+
+
+
+
+
+<!-- 关注页
+<block wx:else>
+  <view wx:for="{{FollowCloudDatas}}" data-id="{{item._id}}" data-idx="{{index}}" wx:key="index">
+  <view class="peoples"  style="margin-bottom: 10rpx;">
+    <view class="container-2">
+    <view class="people">
+      <view class="head"><image src="{{item.headimage}}"/></view>
+      <view class="nlt">
+     <view class="name"><text>{{item.name}}</text></view>
+     <view class="level"><text>lv.{{item.level}}</text></view>
+      <view class="time"><text>{{}}</text></view>
+      <view class="follow"  bindtap="if_follow" data-id="{{item._id}}" data-idx="{{index}}"><image src="{{followimage[index]}}" mode="aspectFit"></image></view>
+      </view>
+    </view>
+
+    <view class="CONTENT">
+      <view class="header"><text >{{item.header}}</text></view>
+      <view class="content"><text>{{item.content}}</text></view>
+    </view>
+
+    <view class="The_Picture">
+    <block wx:if="{{item==1}}">
+    <view class="picture"> <image src="	cloud://cloud1-0gecl1e99570e8f2.636c-cloud1-0gecl1e99570e8f2-1307314019/content_photos/oR3wv45SFEx7OKXfmcwOTG4grjHg_2.png"></image></view>
+    </block>
+    <block wx:else>
+      <view class="picture"><image src="{{item.contentimage}}"/></view>
+    </block>
+       <view class="selected">
+        <image src="/images/other/keys3.png"/>
+        <text>{{item.content_circle}}</text>
+      </view>
+    </view>
+
+  <view class="container-3">
+
+<view class="icon">
+<view id="collect" bindtap="if_star" class="{{animateClass_7}}}" data-class="zoom_1" data-starid="{{item._id}}" data-staridx="{{index}}">
+  <image src="{{starimage[index]}}" mode="aspectFit"/>
+  <text>{{item.star}}</text>
+</view>
+</view>
+
+<view class="icon">
+  <view id="like" bindtap="if_like" class="{{animateClass_8}}}" data-class="zoom_1" data-likeid="{{item._id}}"  data-likeidx="{{index}}" >
+    <image src="{{likeimage[index]}}" mode="aspectFit"/>
+    <text>{{item.like}}</text>
+  </view>
+</view>
+
+<view class="icon">
+<view id="comment" bindtap="collectedjudge" data-commentid="{{item._id}}"  data-idx="{{index}}" bindtap="onEventChannel">
+  <image src="{{commentimage}}" mode="aspectFit"/>
+  <text>{{item.comment}}</text>
+</view>
+</view>
+
+<view class="icon">
+<view id="trans" bindtap="collectedjudge" data-tranid="{{item._id}}">
+  <image src="{{transimage}}" mode="aspectFit"/>
+  <text>{{item.tran}}</text>
+</view>
+</view>
+</view>
+
+
+    <view class="selected-comment"><text>精选留言</text></view>
+    <view class="comment">
+      <view class="head-2"><image src="{{item.leftimage}}"/></view>
+      <view class="name-2"><text>{{item.leftname}}</text></view>
+      <view class="comment-content"><text>{{item.leftmessage}}</text></view>
+      <view class="date"><text>{{item.leftdate}}</text></view>
+      <view class="fabulous" bindtap="if_left" data-leftid="{{item._id}}" data-leftidx="{{index}}"> <image src="{{leftimage[index]}}"/></view>
+      <view class="fabulous-count"><text>{{item.leftlike}}</text></view>
+    </view>
+  </view>
+  </view> 
+</view>
+
+</block> -->
+
+
+
+
+
+

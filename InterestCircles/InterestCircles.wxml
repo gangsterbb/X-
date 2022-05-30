@@ -1,0 +1,16 @@
+<view class="searchss">
+  <view class="home"><image src="../../images/InterestCircle/caidan.png" style="width: 60rpx;height: 60rpx;"></image></view>
+  <view class="searchbar" bindtap="navigatorTo" id="toSearch" >
+    <image src="/images/other/search.png" mode="aspectFit"/> 
+    <input type="text" class="search" placeholder="搜索关键词" placeholder-style="font-size:25rpx"disabled="true" />
+  </view>
+</view>
+
+<view class="container">
+  <view class="content" wx:for="{{list}}" wx-key="index">
+    <view class="left"><image src="../../images/InterestCircle/book.png" style="width: 60rpx;height: 60rpx;"></image></view>
+    <view class="mid name" bindtap="navigatorTo" data-rout="detail" data-index="{{index}}">{{list[index].content}}</view>
+  </view>
+</view>
+
+

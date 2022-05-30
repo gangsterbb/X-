@@ -1,0 +1,5 @@
+/* pages/interest/interest.wxss */
+page{
+  font-family: 'DFPShaoNvW5-GB';
+
+}

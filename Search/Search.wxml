@@ -1,0 +1,95 @@
+<wxs src="../../wxs/get_people.wxs" module="get_people"></wxs>
+<view class="root">
+  <image class='background-image' src='' mode="aspectFill"></image>
+  <view class="content">
+    <view class="bg-img" style="background-image: url(cloud://cloud1-0gecl1e99570e8f2.636c-cloud1-0gecl1e99570e8f2-1307314019/网络图片/网格.jpg);">
+  <view class="container-1">
+  <view class="searchbar">
+  <image src="/images/other/search.png" mode="aspectFit"/> 
+  <input type="text" class="search" placeholder="搜索动态、话题、用户" placeholder-style="font-size:25rpx" value="{{default_title}}" focus="{{default_focus}}" bindinput="get_record" data-collection = "{{collection}}"/>
+  <text bindtap="change_condition">搜索</text>
+</view>
+<block wx:if="{{searchLength1==0&&searchLength2==0&&searchLength3==0}}">
+  <view class="line"></view>
+<view class="history"><text>历史记录</text></view>
+<view class="delete" bindtap="delete_record"><image src="/images/other/delete.png" mode="aspectFit"/></view>
+
+<view class="topics" >
+  <block wx:for="{{past_record.length}}" wx:key="{{item}}">
+    <view class="ellipse" bindlongpress="delete_one_record" bindtap="join_one_record" data-recorditem="{{item}}">{{past_record[item]}}</view>
+  </block>
+
+  <view class="rectangle"><image src="/images/other/rectangle3.png"/></view>
+
+  <view class="container-2" style=" margin-top: 20rpx;">
+  <view class="finds"><text>探索发现</text></view>
+  <view class="trytofind" wx:for="{{investigation.length}}" wx:key="{{item}}">
+    <view class="contents" bindtap="tap_searchfound" data-item="{{item}}"> 
+      {{investigation[item]}}
+    </view> 
+  </view>
+</view>
+</view> 
+</block> 
+<block wx:else>
+   <view class="line_1"></view>
+  <view class="catalog">
+    <button bindtap="changeway" data-way = "hot" class="hot">热门</button>
+    <button bindtap="changeway" data-way = "user" class="user">用户</button>
+    <button bindtap="changeway" data-way = "related" class="related">相关</button>
+  </view>
+<view style="background-color: white;"> 
+  <block wx:if="{{way=='hot'}}">
+    <block wx:for="{{searchLength}}" wx:key="{{item}}">
+    <view class="container_3" id="toDetail" bindtap="navigatorTo">
+      <view class="content_left" >
+         <view  class="name_1"  data-item="{{item}}">{{searchdata[item].title}}</view>
+      <view class="editor">创作者：{{get_people.get_people(Note_People,searchdata[item]._openid).name}}</view>
+</view>
+      <view class="photo_right"><image src="{{searchdata[item].contentimage[0]}}"></image></view>
+
+      
+    </view>
+    <!-- <view class="right-like">
+      <view class="fabulous"> <image src="/images/other/like2.png"/></view>
+      <view class="fabulous-count">{{searchdata[item].like}}</view>
+    </view>
+    <view class="cut-line"></view> -->
+  </block>
+  </block>
+
+
+  <block wx:elif="{{way=='user'}}">
+    <block wx:for="{{searchLength}}" wx:key="{{item}}" >
+      <view class="userinfor">
+        <view class="img"><image src="{{searchdata[item].avatarUrl}}"class="headimage"></image></view>
+        <view class="name">{{searchdata[item].name}}</view>
+    </view>
+    </block>
+  </block>
+  <block wx:elif="{{way=='related'}}">    
+    <!-- 诗词搜索 -->
+     <block wx:for="{{searchLength}}" wx:key="{{item}}"> 
+      <view class="search_item">{{item+1}}</view>
+      <view class="search" style="font-size: 35rpx;font-weight: 700;">{{searchdata[item].title}}</view>
+      <view class="search" style="font-size: 35rpx;font-weight: 700;">{{searchdata[item].rhythmic}}</view>  
+      <view class="search" style="font-size: 27rpx;font-weight: 700;"> {{searchdata[item].author}}</view>
+      <view wx:for="{{poem_content_2[item]}}" wx:key="index" class="search_content"> 
+       {{item}} 
+      </view>
+      <!-- <view>{{searchdata[item].paragraphs}}</view> -->
+      <view class="search">{{searchdata[item].notes}}</view>
+      <view class="search">{{searchdata[item].desc}}</view>
+      <br/>
+    </block>
+  </block>
+
+   </view>
+</block>
+
+
+</view>
+</view>
+
+</view>
+</view>

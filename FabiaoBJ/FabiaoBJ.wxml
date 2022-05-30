@@ -1,0 +1,43 @@
+
+<view class="photo">
+   <view class="add_photo" bindtap="chooseImage" bindlongpress="chooseVideo">
+      <view class="add_photo_img"><image src="/images/xiangji.png"></image> </view>
+      <view class="add_photo_con">长按添加视频</view>
+   </view> 
+   <view class="photo_content">  
+   <scroll-view scroll-y="true">  
+      <view wx:if="{{flag==1}}" >
+         <view wx:for="{{tempFilePaths.length}}" wx:key="item" >
+            <image src="{{tempFilePaths[item]}}" mode="aspectFill" data-current_item="{{item}}" bindtap="previewimage" bindlongpress="deleteimage"></image>
+         </view>
+      </view>
+      <view wx:elif="{{flag==-1}}">
+         <video src="{{tempFilePath}}" loop="loop" style="width: 100%;height: 300rpx;object-fit: fill;"></video>
+      </view>
+   </scroll-view>
+   </view>
+
+</view>
+<view class="title_zan">
+   <!-- <view class="title_zan_title">填写标题会有更多赞哦~</view> -->
+   <input type="text" placeholder="填写标题会有更多赞哦" class="title_zan_title" maxlength="20" bindinput="gettitleinput" value="{{title}}"/>
+   <view class="title_zan_fontNumber">{{left_length}}</view>
+</view>
+<textarea name="" id="" cols="30" rows="10" class="main_content" placeholder="添加正文" maxlength="500" bindinput="getContent" value="{{content}}"></textarea> 
+<block wx:if="{{topic_title!=''}}">
+      <view>#{{topic_title}}</view>
+   </block>
+   <block wx:else>
+      <view class="join_discuss" bindtap="navigatorTo" id="totopic">
+   <view class="JingHao">#</view>
+   <view class="join_discuss_1">参与话题</view>
+   <view class="join_discuss_2">带话题能获得更多的赞</view>
+   <view class="YinQin">></view>
+</view>
+   </block>
+<view class="container_3" bindtap="chooseimage">
+   <view class="toword_img"><image src="../../images/other/pho_to_word.png"></image></view>
+   <view class="toword_con">图片转文字</view>
+</view> 
+
+<view style="position: fixed;bottom: 28rpx;" class="open_biji {{animateClass[0]}}" bindtap="switchtap" id="toindex"  data-class="zoom" data-index_1="0">发布笔记</view>

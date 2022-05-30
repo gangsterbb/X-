@@ -1,0 +1,22 @@
+<view class="top">
+   <view class="make_favorite">创建收藏夹</view>
+   <view class="OK" bindtap="Finished" id="Favotites">完成</view>
+</view>
+<view class="line_1"></view>
+<view class="cover" bindtap="chooseImage">
+   <view class="cover_left">封面</view>
+   <view class="cover_right"> 
+   <image src="../../images/other/arrows.png" style="margin-top: 15rpx;"></image>
+   <image src="{{tempFilePaths}}" mode="aspectFill" style="width: 100rpx;height: 100rpx;"></image>   
+   </view>
+</view>
+<view class="title">
+   <view class="name">名称</view>
+   <view class="inp"><input class="inp_input" placeholder="请输入名称" maxlength="20" bindinput="get_name_input"/></view>
+</view>
+<view class="brief">
+   <view class="bri_name">简介</view>
+   <view class="bri_inp">
+      <textarea class="bri_inp_input" name="" id="" cols="30" rows="10" placeholder="请输入简介" bindinput="get_description_input"></textarea>
+   </view>
+</view>

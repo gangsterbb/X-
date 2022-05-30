@@ -1,0 +1,4 @@
+/* pages/topic/topic.wxss */
+page{
+  font-family: 'DFPShaoNvW5-GB';
+}

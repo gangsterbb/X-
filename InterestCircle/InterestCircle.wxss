@@ -1,0 +1,76 @@
+page{
+  font-family: 'DFPShaoNvW5-GB';
+}
+.title{
+  width: 86%;
+  margin-left: 7%;
+  height: 70rpx;
+  color: black;
+  font-size: 55rpx;
+  font-weight: 500;
+}
+
+
+.searchss .home{
+  float: left;
+  margin-left: 7%;
+  padding-top: 20rpx;
+}
+
+.searchbar{
+  float: left;
+  width: 450rpx;
+  height: 100rpx;
+  /* background-color: white; */
+}
+.searchbar image{
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+  top: 33rpx;
+  left: 60rpx;
+}
+.searchbar input{
+  margin-left: 30rpx;
+  margin-top: -20rpx;
+  width: 465rpx;
+  height: 60rpx;
+  background-color: #e6e6e6;
+  border-radius: 15rpx;
+  padding-left: 90rpx;
+  font-size: 25rpx;
+}
+
+.container{
+  width: 86%;
+  margin-left: 7%;
+  margin-top: 10rpx;
+}
+.container .content{
+  height: 90rpx;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 5rpx;
+}
+.container .content .left{
+  width: 60rpx;
+  height: 75rpx;
+  padding-top: 15rpx;
+  padding-left: 10rpx;
+  float: left;
+}
+.container .content .mid{
+  width: 350rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-left: 25rpx;
+  font-size: 32rpx;
+  float: left;
+}
+.container .content .right{
+  width: 60rpx;
+  height: 70rpx;
+  padding-top: 20rpx;
+  padding-right: 10rpx;
+  float: right;
+}

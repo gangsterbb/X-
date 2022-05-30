@@ -1,0 +1,30 @@
+<wxs src='../../utils/util.wxs' module='util'/>
+
+<view class="container_1">
+
+  <scroll-view class="nav" scroll-y="true" scroll-with-animation scroll-top="{{tabNavTop}}">
+        <block wx:for="{{topic.length}}" wx:key="index">
+            <view class="nav-item {{index === tabIndex ? 'tab-active' : ''}}" style="height: 50px" bindtap='handleTabSelect' data-index="{{index}}">
+                {{topic[index].topic_title}}
+            </view>
+        </block> 
+    </scroll-view>
+    <scroll-view class="content" scroll-y="true" scroll-with-animation scroll-into-view="main-{{activeIndex}}" bindscroll="scrollContent">
+        <block wx:for="{{topic_content.length}}" wx:key="index" >
+            <view class="item" id="main-{{index}}" bindtap="choose_topic" data-topic="{{topic_content[index].title}}" data-content="{{topic_content[index].content}}" data-index="{{index}}">
+                <block wx:if="{{topic_content[index].title=='话题'}}">
+                    <input type="text" name="" id="" placeholder="请输入主题" bindinput="inputscene" class="block_input"></input>
+                    <input type="text" name="" placeholder="请输入话题" id="" bindinput="topic_design" class="block_input" style="margin-bottom: 35rpx;"></input>
+                    <button bindtap="checkcontent" class="block_btn" style="width: 240rpx;height: 80rpx;border-radius: 30rpx;">生成话题</button>
+                </block>
+                <block wx:else>
+                    <view class="container_1">
+                        <view class="bg_img"><image src="{{topic_content[index].image}}" style="width: 490rpx;height: 300rpx;border-radius: 20rpx;opacity: 0.5;" mode="aspectFill"></image></view>
+                        <view class="bg_cont">{{topic_content[index].title}}</view>
+                        
+                    </view>    
+                </block>
+            </view>
+        </block>
+    </scroll-view>
+</view>

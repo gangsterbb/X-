@@ -1,0 +1,5 @@
+/* pages/favorite_detail/favorite_detail.wxss */
+page{
+  font-family: 'DFPShaoNvW5-GB';
+
+}

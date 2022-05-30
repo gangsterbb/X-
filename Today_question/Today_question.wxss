@@ -1,0 +1,149 @@
+.bg-image
+{ 
+  background-color: #f0f0f0;
+  width : 100%;
+  height : 100%;  
+  position: fixed;  
+  z-index: -1;  
+}
+.element1{
+  position: fixed;
+  right: 0rpx;
+  /* margin-top: 200rpx; */
+  z-index: -1;  
+}
+.element1 image{
+  width: 300rpx;
+  height: 525rpx;
+}
+.element2{
+  position: fixed;
+  bottom: 0rpx;
+  z-index: -1;  
+}
+.element2 image{
+  width: 500rpx;
+  height: 305rpx;
+}
+.today_que{
+  margin-left: 175rpx;
+  margin-top: 30rpx;
+}
+.today_que image{
+  width: 400rpx;
+  height: 120rpx;
+}  
+.container{
+  width: 500rpx;
+  margin-left: 125rpx;
+  margin-top: 60rpx;
+  background-color: #f9f9f9;
+  font-size: 38rpx;
+  border-radius: 20rpx;
+  padding-bottom: 30rpx;
+}
+.content{
+  width: 420rpx;
+  padding-left: 50rpx;
+  padding-right: 30rpx;
+  padding-top: 35rpx;
+  padding-bottom: 20rpx;
+  line-height: 70rpx;
+  color: #50616d;
+  font-size: 38rpx;
+}
+.item{
+  width: 300rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  text-align: center;
+  color: #50616d;
+  border: #d1d1d1 5rpx solid;
+  background-color: #f0f0f0;
+  margin-bottom: 25rpx;
+  border-radius: 45rpx;
+}
+
+.mask{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(56, 55, 55, 0.651);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900;
+}
+.windows{
+  width: 400rpx;
+  height: 600rpx;
+  /* background-color: #def4f8; */
+  border: white solid 5rpx;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 250rpx;
+  left: 175rpx;
+  z-index: 999;
+}
+.tanchuang_img{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  top: 120rpx;
+  left: 100rpx;
+}
+.tanchuang_content{
+  width: 300rpx; 
+  line-height: 50rpx;
+  font-size: 35rpx;
+  text-align: center;
+  color: white;
+  position: absolute;
+  top: 420rpx;
+  left: 50rpx;
+}
+.toback{
+  color: white;
+  font-size: 28rpx;
+  position: absolute;
+  top: 1000rpx;
+  left: 325rpx;
+  z-index: 999;
+  text-align: center;
+  width: 100rpx;
+  text-decoration: underline;
+}
+.show_poem{
+  width: 200rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 35rpx;
+  color: white;
+  text-align: center;
+  position: absolute;
+  top: 900rpx;
+  left: 275rpx;
+  z-index: 999;
+  border: white solid 4rpx;
+  border-radius: 50rpx;
+}
+
+.poem_title{
+  width: 400rpx;
+  text-align: center;
+  font-size: 38rpx;
+  line-height: 100rpx;
+  color: white;
+  z-index: 999;
+  /* position: relative; */
+}
+.poem{
+  margin-left: 16rpx;
+  width: 400rpx;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 70rpx;
+  color: white;
+  z-index: 999; 
+  /* position: relative; */
+}

@@ -1,0 +1,10 @@
+<view class="notification">系统通知</view>
+<view class="all">全部消息</view>
+<block wx:for="{{Notification}}" wx:key="index">
+   <view class="container_1" bindtap="navigatorTo" data-rout="Notification_detail">
+   <view class="title">{{item.title}}</view> 
+   <view class="content">{{item.content}}>>></view>
+   <view class="time">{{item.time}}</view>
+</view>
+</block>
+

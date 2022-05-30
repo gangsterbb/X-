@@ -1,0 +1,42 @@
+<view class="bg-image">
+   <!-- <image class="bg-image" mode="scaleToFill" src="../../images/other/TodaQuebg.png"></image> -->
+</view>
+<view class="element1"><image src="../../images/other/TodayQue_element1.png"></image></view> 
+<view class="element2"><image src="../../images/other/TodayQue_element2.png"></image></view> 
+
+<view class="today_que"><image src="../../images/other/today_ranking.png"></image></view>
+
+<view class="container" wx:if="{{people.length!=0}}">  
+  <view class="container_1" wx:if="{{people.length>0}}">
+      <view class="left_img"><image src="{{people[0].avatarUrl}}"></image></view>
+      <view class="mid_content">
+        <view class="medal"><image src="../../images/other/gold_medal.png"></image></view>
+        <view class="ranging">第一名</view>
+        <view class="name">{{people[0].peoplename}}</view>
+      </view>
+      <view class="right_content">{{people[0].num}} 句</view>
+  </view>
+
+
+  <view class="container_1" wx:if="{{people.length>1}}">
+      <view class="left_img"><image src="{{people[1].avatarUrl}}"></image></view>
+      <view class="mid_content">
+        <view class="medal"><image src="../../images/other/silver_medal.png"></image></view>
+        <view class="ranging">第二名</view>
+        <view class="name">{{people[1].peoplename}}</view>
+      </view>
+      <view class="right_content">{{people[1].num }}句</view>
+  </view>
+
+  <view class="container_1" wx:if="{{people.length>2}}">
+      <view class="left_img"><image src="{{people[2].avatarUrl}}"></image></view>
+      <view class="mid_content">
+        <view class="medal"><image src="../../images/other/copper_medal.png"></image></view>
+        <view class="ranging">第三名</view>
+        <view class="name">{{people[2].peoplename}}</view>
+      </view>
+      <view class="right_content">{{people[2].num}}句</view>
+  </view>
+</view>
+
+<view class="container_2" wx:else>暂时还没有人占据榜单噢，快来试试吧！</view>

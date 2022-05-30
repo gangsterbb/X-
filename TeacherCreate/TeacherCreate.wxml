@@ -1,0 +1,19 @@
+<block wx:for="{{Data}}" >
+  <view class="containe" id="ToVideo" bindtap="navigatorTo" data-rout="ShowingVideo" data-index="{{index}}">
+  <view class="left">
+    <image src="{{item.poster}}"></image>
+  </view>
+  <view class="mid-content">
+    <view class="titie">{{item.video_name}}</view>
+    <!-- <view class="course-hours">共19课时</view> -->
+    <view class="container-2">
+      <view class="photo-video"><image src="../../images/other/videoIcon.png" style="width: 35rpx;height: 35rpx;"></image></view>
+      <view class="show-amount">{{item.play_people.length}}</view>
+    </view> 
+  </view>
+  <view class="right-menu"><image src="../../images/other/threepoints.png"></image></view>
+  <view class="line"></view>
+</view>
+</block>
+<view bindtap="navigatorTo" data-rout="Feihualing">飞花令</view>
+<view bindtap="navigatorTo" data-rout="Today_question">今日问答</view>

@@ -1,0 +1,30 @@
+page{
+  font-family: 'DFPShaoNvW5-GB';
+
+}
+.divide{
+  width: 100%;
+  height: 70rpx;
+  font-size: 35rpx;
+  padding-left: 40rpx;
+  padding-top: 30rpx;
+}
+.line{
+  width: 100%;
+  height: 4rpx;
+  background-color: rgb(238, 232, 232);
+}
+.classify{
+  width: 186rpx;
+  height: 200rpx;
+  border: grey solid 1rpx;
+}
+.classify .photo{
+  width: 100rpx;
+  height: 150rpx;
+  border: grey solid 1rpx;
+}
+.classify .photo image{
+  width: 100rpx;
+  height: 100rpx;
+}
